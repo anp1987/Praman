@@ -519,5 +519,22 @@
 <script src="js/cookie-consent.js"></script>
 <script src="js/main.js"></script>
 <script src="js/animations.js"></script>
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-trigger').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const item = this.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
 </body>
 </html>
