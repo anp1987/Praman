@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Compliance Assessment — Praman</title>
+<meta name="description" content="Get your AI-generated Trust Score in under 15 minutes. Receive an instant assessment with risks, recommendations, and a personalized roadmap.">
+<meta property="og:title" content="Free AI Compliance Assessment — Praman">
+<meta property="og:description" content="Answer a few questions and receive an instant assessment with risks, recommendations, and a personalized roadmap.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/assessment.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="site-header"></div>
+
+<main id="main">
+
+  <!-- Landing View -->
+  <section class="assess-landing" id="assessLanding">
+    <div class="container" style="max-width: 720px; text-align: center;">
+      <div class="assess-badge" data-animate="fade-up">
+        <span class="pulse-dot"></span>
+        <span>AI-Powered Assessment</span>
+      </div>
+      <h1 class="h-display" data-animate="fade-up" data-delay="1">Get your AI-generated<br><span class="text-accent-gradient">Trust Score</span> in under 15 minutes.</h1>
+      <p class="body-lg" data-animate="fade-up" data-delay="2" style="max-width: 560px; margin: var(--space-6) auto var(--space-9);">Answer a few questions and receive an instant assessment with risks, recommendations, and a personalized roadmap. No commitment required.</p>
+      <div class="assess-cta-group" data-animate="fade-up" data-delay="3">
+        <button class="btn btn--primary btn--lg" id="btnStartAssessment">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Start Free Assessment
+        </button>
+        <button class="btn btn--secondary btn--lg" id="btnSampleReport">See Sample Report →</button>
+      </div>
+      <div class="assess-trust-signals" data-animate="fade-up" data-delay="4">
+        <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No credit card</div>
+        <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 15 min to complete</div>
+        <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Instant results</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wizard View -->
+  <section class="assess-wizard" id="assessWizard" style="display: none;">
+    <div class="wizard-container">
+
+      <!-- Progress Bar -->
+      <div class="wizard-progress">
+        <div class="wizard-progress-bar" id="wizardProgressBar"></div>
+        <div class="wizard-steps-indicator">
+          <span class="step-dot active" data-step="1">1</span>
+          <span class="step-dot" data-step="2">2</span>
+          <span class="step-dot" data-step="3">3</span>
+          <span class="step-dot" data-step="4">4</span>
+        </div>
+      </div>
+
+      <!-- Step 1: Contact Info -->
+      <div class="wizard-step active" id="step1">
+        <div class="step-header">
+          <span class="step-label">Step 1 of 4</span>
+          <h2 class="h3">Let's start with your details</h2>
+          <p class="body-sm text-muted">We'll use this to personalize your assessment and send your report.</p>
+        </div>
+        <div class="wizard-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="assess-name">Full Name <span class="req">*</span></label>
+              <input type="text" id="assess-name" placeholder="Jane Smith" required>
+            </div>
+            <div class="form-field">
+              <label for="assess-email">Work Email <span class="req">*</span></label>
+              <input type="email" id="assess-email" placeholder="jane@company.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="assess-company">Company <span class="req">*</span></label>
+              <input type="text" id="assess-company" placeholder="Acme Inc." required>
+            </div>
+            <div class="form-field">
+              <label for="assess-phone">Phone</label>
+              <input type="tel" id="assess-phone" placeholder="+91 98765 43210">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Company Profile -->
+      <div class="wizard-step" id="step2">
+        <div class="step-header">
+          <span class="step-label">Step 2 of 4</span>
+          <h2 class="h3">Tell us about your organization</h2>
+          <p class="body-sm text-muted">This helps us tailor the assessment to your industry and scale.</p>
+        </div>
+        <div class="wizard-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="assess-industry">Industry <span class="req">*</span></label>
+              <select id="assess-industry" required>
+                <option value="">Select industry...</option>
+                <option value="Technology">Technology / SaaS</option>
+                <option value="Financial Services">Financial Services</option>
+                <option value="Healthcare">Healthcare / Pharma</option>
+                <option value="E-commerce">E-commerce / Retail</option>
+                <option value="Education">Education / EdTech</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Government">Government / Public Sector</option>
+                <option value="Telecommunications">Telecommunications</option>
+                <option value="Legal">Legal / Professional Services</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="assess-employees">Employee Count <span class="req">*</span></label>
+              <select id="assess-employees" required>
+                <option value="">Select size...</option>
+                <option value="1-50">1–50</option>
+                <option value="51-200">51–200</option>
+                <option value="201-1000">201–1,000</option>
+                <option value="1001-5000">1,001–5,000</option>
+                <option value="5001+">5,001+</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="assess-country">Primary Country of Operations <span class="req">*</span></label>
+              <select id="assess-country" required>
+                <option value="">Select country...</option>
+                <option value="India">India</option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Germany">Germany</option>
+                <option value="Singapore">Singapore</option>
+                <option value="UAE">UAE</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="assess-existing">Existing Certifications</label>
+              <select id="assess-existing">
+                <option value="">None currently</option>
+                <option value="ISO 27001">ISO 27001</option>
+                <option value="SOC 2">SOC 2</option>
+                <option value="GDPR Compliant">GDPR Compliant</option>
+                <option value="HIPAA">HIPAA</option>
+                <option value="Multiple">Multiple frameworks</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Framework Selection -->
+      <div class="wizard-step" id="step3">
+        <div class="step-header">
+          <span class="step-label">Step 3 of 4</span>
+          <h2 class="h3">Which frameworks do you need?</h2>
+          <p class="body-sm text-muted">Select all frameworks you want assessed. We'll map overlapping controls automatically.</p>
+        </div>
+        <div class="wizard-form">
+          <div class="framework-grid">
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="DPDP">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🇮🇳</div>
+                <div class="framework-info">
+                  <strong>DPDP Act</strong>
+                  <span>India's Digital Personal Data Protection</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="GDPR">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🇪🇺</div>
+                <div class="framework-info">
+                  <strong>GDPR</strong>
+                  <span>EU General Data Protection Regulation</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="ISO 27001">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🛡️</div>
+                <div class="framework-info">
+                  <strong>ISO 27001</strong>
+                  <span>Information Security Management</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="SOC 2">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🔒</div>
+                <div class="framework-info">
+                  <strong>SOC 2</strong>
+                  <span>Trust Service Criteria</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="HIPAA">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🏥</div>
+                <div class="framework-info">
+                  <strong>HIPAA</strong>
+                  <span>Healthcare Data Protection</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+            <label class="framework-card">
+              <input type="checkbox" name="framework" value="AI Governance">
+              <div class="framework-card-inner">
+                <div class="framework-icon">🤖</div>
+                <div class="framework-info">
+                  <strong>AI Governance</strong>
+                  <span>Responsible AI & Model Compliance</span>
+                </div>
+                <div class="framework-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: AI Questionnaire -->
+      <div class="wizard-step" id="step4">
+        <div class="step-header">
+          <span class="step-label">Step 4 of 4</span>
+          <h2 class="h3">AI Compliance Assessment</h2>
+          <p class="body-sm text-muted">Answer these questions to generate your personalized Trust Score.</p>
+        </div>
+        <div class="wizard-form">
+          <div class="questionnaire" id="questionnaire">
+            <!-- Questions rendered by JS -->
+          </div>
+          <div class="question-progress">
+            <div class="question-progress-bar" id="questionProgressBar"></div>
+          </div>
+          <p class="question-counter" id="questionCounter">Question 1 of 10</p>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="wizard-nav">
+        <button class="btn btn--secondary" id="btnPrev" style="visibility: hidden;">← Back</button>
+        <button class="btn btn--primary" id="btnNext">Continue →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Processing View -->
+  <section class="assess-processing" id="assessProcessing" style="display: none;">
+    <div class="container" style="max-width: 560px; text-align: center;">
+      <div class="ai-processing-visual">
+        <div class="processing-rings">
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="ring ring-3"></div>
+          <div class="processing-core">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5v1h3a3 3 0 0 1 3 3v1h1.5a2.5 2.5 0 0 1 0 5H17v1a3 3 0 0 1-3 3h-3v-1.5c-1.2.7-2 2-2 3.5a4 4 0 0 1-4-4c0-1.5.8-2.8 2-3.5v-1H4a3 3 0 0 1-3-3v-1H.5a2.5 2.5 0 0 1 0-5H4v-1a3 3 0 0 1 3-3h3V3.5C8.8 2.8 8 1.5 8 0"/></svg>
+          </div>
+        </div>
+      </div>
+      <h2 class="h3" style="margin-top: var(--space-9);">Analyzing your compliance posture...</h2>
+      <div class="processing-steps" id="processingSteps">
+        <div class="proc-step active">
+          <span class="proc-icon">⏳</span>
+          <span>Mapping organizational context</span>
+        </div>
+        <div class="proc-step">
+          <span class="proc-icon">⏳</span>
+          <span>Evaluating framework requirements</span>
+        </div>
+        <div class="proc-step">
+          <span class="proc-icon">⏳</span>
+          <span>Identifying control gaps</span>
+        </div>
+        <div class="proc-step">
+          <span class="proc-icon">⏳</span>
+          <span>Calculating risk exposure</span>
+        </div>
+        <div class="proc-step">
+          <span class="proc-icon">⏳</span>
+          <span>Generating recommendations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Dashboard -->
+  <section class="assess-results" id="assessResults" style="display: none;">
+    <div class="container" style="max-width: 900px;">
+      <div class="results-header">
+        <div class="results-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Assessment Complete</div>
+        <h1 class="h2">Your Trust Score Report</h1>
+        <p class="body-sm text-muted" id="resultsCompany">Prepared for Acme Inc.</p>
+      </div>
+
+      <!-- Score Ring -->
+      <div class="score-hero">
+        <div class="score-ring-container">
+          <svg class="score-ring" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="85" fill="none" stroke="var(--border)" stroke-width="12"/>
+            <circle class="score-ring-fill" cx="100" cy="100" r="85" fill="none" stroke="url(#scoreGradient)" stroke-width="12" stroke-linecap="round" stroke-dasharray="534" stroke-dashoffset="534" transform="rotate(-90 100 100)"/>
+            <defs>
+              <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--accent)"/>
+                <stop offset="100%" stop-color="var(--emerald)"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="score-value">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-percent">%</span>
+          </div>
+          <span class="score-label">Overall Trust Score</span>
+        </div>
+      </div>
+
+      <!-- Metrics Grid -->
+      <div class="results-metrics">
+        <div class="metric-card metric--danger">
+          <span class="metric-value" id="metricCritical">2</span>
+          <span class="metric-label">Critical Risks</span>
+        </div>
+        <div class="metric-card metric--warning">
+          <span class="metric-value" id="metricMedium">5</span>
+          <span class="metric-label">Medium Risks</span>
+        </div>
+        <div class="metric-card metric--info">
+          <span class="metric-value" id="metricControls">8</span>
+          <span class="metric-label">Missing Controls</span>
+        </div>
+        <div class="metric-card metric--accent">
+          <span class="metric-value" id="metricDays">18</span>
+          <span class="metric-label">Days to Improve</span>
+        </div>
+      </div>
+
+      <!-- Recommended Action -->
+      <div class="results-action-card">
+        <div class="action-icon">🚀</div>
+        <div class="action-content">
+          <span class="action-label">Recommended Next Step</span>
+          <strong class="action-title">Generate Action Plan</strong>
+          <p class="action-desc">Based on your assessment, we recommend starting with your critical risks. Our AI can generate a prioritized remediation plan with estimated timelines.</p>
+        </div>
+      </div>
+
+      <!-- CTA Grid -->
+      <div class="results-cta-grid">
+        <a href="#" class="result-cta-card" id="btnDownloadReport">
+          <div class="cta-icon">📄</div>
+          <strong>Download Executive Summary</strong>
+          <span>PDF report with full analysis</span>
+        </a>
+        <a href="contact.html?service=Platform+Demo" class="result-cta-card">
+          <div class="cta-icon">🎥</div>
+          <strong>Book a Personalized Demo</strong>
+          <span>30-min walkthrough with an expert</span>
+        </a>
+        <a href="pricing.html" class="result-cta-card cta-card--premium">
+          <div class="cta-icon">⚡</div>
+          <strong>Upgrade to Detailed Assessment</strong>
+          <span>Deep-dive with control-level mapping</span>
+        </a>
+      </div>
+
+      <p class="results-footer-note">A detailed version of this report has been sent to <span id="resultsEmail">your email</span>.</p>
+    </div>
+  </section>
+
+  <!-- Sample Report Modal -->
+  <div class="sample-modal-overlay" id="sampleModal" style="display: none;">
+    <div class="sample-modal">
+      <button class="sample-modal-close" id="closeSampleModal">✕</button>
+      <div class="sample-modal-content">
+        <h3 class="h4">Sample Trust Score Report</h3>
+        <p class="body-sm text-muted" style="margin-bottom: var(--space-6);">This is what your personalized report will look like.</p>
+        <div class="sample-score-preview">
+          <div class="sample-score-ring">
+            <span class="sample-score-value">76%</span>
+          </div>
+          <div class="sample-metrics-mini">
+            <div><span class="dot dot--danger"></span> 3 Critical Risks</div>
+            <div><span class="dot dot--warning"></span> 7 Medium Risks</div>
+            <div><span class="dot dot--info"></span> 12 Missing Controls</div>
+            <div><span class="dot dot--accent"></span> 24 Days to Improve</div>
+          </div>
+        </div>
+        <div class="sample-frameworks">
+          <span class="sample-fw">DPDP — 68%</span>
+          <span class="sample-fw">GDPR — 72%</span>
+          <span class="sample-fw">ISO 27001 — 81%</span>
+          <span class="sample-fw">SOC 2 — 79%</span>
+        </div>
+        <button class="btn btn--primary btn--lg" style="width: 100%; margin-top: var(--space-7);" onclick="document.getElementById('sampleModal').style.display='none'; document.getElementById('btnStartAssessment').click();">Get Your Own Report →</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div id="site-footer"></div>
+<script src="js/components.js"></script>
+<script src="js/cookie-consent.js"></script>
+<script src="js/assessment.js"></script>
+</body>
+</html>
