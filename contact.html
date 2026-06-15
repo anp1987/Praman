@@ -74,15 +74,15 @@
           <div style="margin-bottom: var(--space-8);">
             <span class="label" style="margin-bottom: var(--space-4); display: block;">Quick Options</span>
             <div style="display: flex; flex-direction: column; gap: var(--space-4);">
-              <div class="feature-card" style="padding: var(--space-5);">
+              <div class="feature-card" style="padding: var(--space-5); cursor: pointer;" onclick="selectService('Free Assessment')">
                 <h3 style="font-size: 15px; margin-bottom: var(--space-1);">📊 Free Assessment</h3>
                 <p style="font-size: 13px;">Get your compliance score in 15 minutes. No commitment.</p>
               </div>
-              <div class="feature-card" style="padding: var(--space-5);">
+              <div class="feature-card" style="padding: var(--space-5); cursor: pointer;" onclick="selectService('Platform Demo')">
                 <h3 style="font-size: 15px; margin-bottom: var(--space-1);">🎥 Book a Demo</h3>
                 <p style="font-size: 13px;">See the platform live. 30-min personalized walkthrough.</p>
               </div>
-              <div class="feature-card" style="padding: var(--space-5);">
+              <div class="feature-card" style="padding: var(--space-5); cursor: pointer;" onclick="selectService('Partnership')">
                 <h3 style="font-size: 15px; margin-bottom: var(--space-1);">🤝 Partnerships</h3>
                 <p style="font-size: 13px;">Law firms, auditors, consultants — let's collaborate.</p>
               </div>
@@ -110,5 +110,16 @@
 <script src="js/cookie-consent.js"></script>
 <script src="js/main.js"></script>
 <script src="js/animations.js"></script>
+<script>
+function selectService(value) {
+  const select = document.getElementById('cf-service');
+  if (select) {
+    select.value = value;
+    select.focus();
+  }
+  const form = document.getElementById('contactForm') || select.closest('form');
+  if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+</script>
 </body>
 </html>
