@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free DPDP Readiness Score — Praman</title>
+<meta name="description" content="Find out where your business stands on DPDP compliance in 15 minutes. Answer 12 quick questions and get your free readiness score, top gaps, and an action plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="site-header"></div>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Free tool · No sign-up to start</span>
+      <h1>What's your DPDP Readiness Score?</h1>
+      <p>Answer 12 quick questions about how your business handles personal data. You'll get an instant score, your biggest gaps, and a clear next step — free.</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+      <div class="quiz-wrap">
+        <div class="quiz-panel">
+
+          <!-- INTRO -->
+          <div class="quiz-intro" id="quizIntro">
+            <span class="pill">DPDP Readiness Check</span>
+            <h2>Know where you stand in 15 minutes</h2>
+            <p>No jargon, no sign-up to begin. Just answer honestly — your score and priority gaps appear at the end.</p>
+            <div class="quiz-meta">
+              <div class="m"><b>12</b>questions</div>
+              <div class="m"><b>~3 min</b>to finish</div>
+              <div class="m"><b>Free</b>instant score</div>
+            </div>
+            <button class="btn btn-primary" id="quizStart">Start the assessment →</button>
+          </div>
+
+          <!-- QUIZ -->
+          <div class="quiz-card is-hidden" id="quizCard">
+            <div class="q-top">
+              <span class="q-count" id="qCount">Question 1 of 12</span>
+              <span class="q-area" id="qArea">Data mapping</span>
+            </div>
+            <div class="q-progress" aria-hidden="true"><span id="qBar"></span></div>
+            <p class="q-question" id="qQuestion">…</p>
+            <div class="q-options" id="qOptions" role="group" aria-label="Answer options"></div>
+            <div class="q-nav">
+              <button class="q-back" id="qBack" type="button" disabled>← Back</button>
+            </div>
+          </div>
+
+          <!-- RESULT -->
+          <div class="result is-hidden" id="quizResult">
+            <div class="score-ring">
+              <svg width="180" height="180" viewBox="0 0 180 180" aria-hidden="true">
+                <circle cx="90" cy="90" r="78" fill="none" stroke="#E0E8E8" stroke-width="12"/>
+                <circle id="ringProgress" cx="90" cy="90" r="78" fill="none" stroke="#0E7C6B" stroke-width="12" stroke-linecap="round"/>
+              </svg>
+              <div class="val">
+                <span class="num" id="scoreNum">0</span>
+                <span class="pct">/ 100</span>
+              </div>
+            </div>
+            <div class="band-label" id="bandLabel">—</div>
+            <p class="band-msg" id="bandMsg"></p>
+
+            <div class="gaps" id="gaps"></div>
+
+            <div class="result-form">
+              <h3>Get your full report &amp; action plan</h3>
+              <p class="sub">We'll email a detailed breakdown of every answer plus a prioritised plan to close your gaps.</p>
+              <form id="reportForm" novalidate>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="rf-name">Name <span class="req">*</span></label>
+                    <input type="text" id="rf-name" autocomplete="name" placeholder="Your name">
+                  </div>
+                  <div class="field">
+                    <label for="rf-email">Work email <span class="req">*</span></label>
+                    <input type="email" id="rf-email" autocomplete="email" placeholder="you@company.com">
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Email me the full report</button>
+                <p class="form-note" id="reportNote" role="status" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <p class="result-secondary">Prefer to talk it through? <a href="contact.html">Book a free consultation →</a></p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cookie-consent.js"></script>
+<script src="js/main.js"></script>
+<script src="js/readiness.js"></script>
+</body>
+</html>
