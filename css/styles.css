@@ -234,8 +234,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding-top: calc(64px + var(--space-15));
-  padding-bottom: var(--space-14);
+  padding-top: calc(64px + var(--space-11));
+  padding-bottom: var(--space-10);
   position: relative;
   overflow: hidden;
 }
@@ -269,7 +269,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   font-weight: 500;
   color: var(--accent-light);
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-5);
 }
 .hero-badge .dot {
   width: 6px;
@@ -279,9 +279,9 @@ h1, h2, h3, h4, h5, h6 {
   animation: pulse 2s ease infinite;
 }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-.hero h1 { margin-bottom: var(--space-6); }
-.hero .body-lg { max-width: 600px; margin-inline: auto; margin-bottom: var(--space-8); }
-.hero-cta { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-12); }
+.hero h1 { margin-bottom: var(--space-4); }
+.hero .body-lg { max-width: 600px; margin-inline: auto; margin-bottom: var(--space-6); }
+.hero-cta { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-8); }
 .hero-visual {
   position: relative;
   margin-top: var(--space-11);
@@ -736,7 +736,7 @@ h1, h2, h3, h4, h5, h6 {
   .nav-links.open { transform: translateX(0); }
   .nav-links a { padding: var(--space-4) 0; border-bottom: 1px solid var(--border); font-size: 16px; border-radius: 0; }
   .nav-actions { display: none; }
-  .hero { padding-top: calc(64px + var(--space-11)); }
+  .hero { padding-top: calc(64px + var(--space-8)); }
   .h-display { font-size: 36px; }
   .features-grid, .pricing-grid { grid-template-columns: 1fr; }
   .frameworks-grid, .industries-grid { grid-template-columns: repeat(2, 1fr); }
